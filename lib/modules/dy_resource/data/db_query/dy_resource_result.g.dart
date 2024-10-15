@@ -10,9 +10,10 @@ DyResourceResult _$DyResourceResultFromJson(Map<String, dynamic> json) =>
     DyResourceResult(
       id: json['id'] as String,
       structureCode: json['structure_code'] as String,
-      fields: json['fields'] as Map<String, dynamic>?,
+      fields: json['fields'] as Map<String, dynamic>? ?? const {},
       createdAt:
           DyResourceResult._dateTimeFromJson(json['created_at'] as DateTime),
       updatedAt:
           DyResourceResult._dateTimeFromJson(json['updated_at'] as DateTime),
+      creatorId: json['creator_id'] as String?,
     );

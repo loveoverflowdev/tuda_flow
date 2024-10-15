@@ -1,14 +1,14 @@
 import 'package:postgres/postgres.dart';
 
 final class PostgresClient {
-  Connection? _connection;
+  late Future<Connection> _connection;
 
   PostgresClient() {
     _connect();
   }
 
-  Future<void> _connect() async {
-    _connection = await Connection.open(
+  void _connect() {
+    _connection = Connection.open(
       Endpoint(
         host: 'localhost',
         port: 5432,
@@ -27,13 +27,13 @@ final class PostgresClient {
     QueryMode? queryMode,
     Duration? timeout,
   }) async {
-    if (_connection == null) {
-      throw Exception('Connection is not initialized');
+    var conn = await _connection;
+
+    if (!conn.isOpen) {
+      _connect();
+      conn = await _connection;
     }
-    if (_connection?.isOpen == true) {
-      await _connect();
-    }
-    return _connection!.execute(
+    return conn.execute(
       query,
       parameters: parameters,
       ignoreRows: ignoreRows,

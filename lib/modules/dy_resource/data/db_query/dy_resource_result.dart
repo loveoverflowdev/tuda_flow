@@ -6,13 +6,16 @@ part 'dy_resource_result.g.dart';
 @JsonSerializable(
   createToJson: false,
 )
-class DyResourceResult {
+final class DyResourceResult {
+  factory DyResourceResult.fromJson(Map<String, dynamic> json) =>
+      _$DyResourceResultFromJson(json);
   const DyResourceResult({
     required this.id,
     required this.structureCode,
-    this.fields,
+    this.fields = const {},
     required this.createdAt,
     required this.updatedAt,
+    required this.creatorId,
   });
 
   @JsonKey(name: 'id')
@@ -22,7 +25,10 @@ class DyResourceResult {
   final String structureCode;
 
   @JsonKey(name: 'fields')
-  final Map<String, dynamic>? fields;
+  final Map<String, dynamic> fields;
+
+  @JsonKey(name: 'creator_id')
+  final String? creatorId;
 
   @JsonKey(name: 'created_at', fromJson: _dateTimeFromJson)
   final DateTime createdAt;
@@ -39,9 +45,6 @@ class DyResourceResult {
       updatedAt: updatedAt,
     );
   }
-
-  factory DyResourceResult.fromJson(Map<String, dynamic> json) =>
-      _$DyResourceResultFromJson(json);
 
   /// Use it because posgreql pre parse datetime and so does json_serializable
   static DateTime _dateTimeFromJson(DateTime dateTime) => dateTime;

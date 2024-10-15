@@ -1,3 +1,3 @@
-export 'dy_group/domain/entities.dart';
-export 'dy_group/domain/ports.dart';
-export 'dy_group/domain/repositories.dart';
+export 'dy_group/presentation.dart';
+export 'dy_group/domain.dart';
+export 'dy_group/data.dart';

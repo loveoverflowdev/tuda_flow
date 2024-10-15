@@ -2,11 +2,11 @@ import 'package:fpdart/fpdart.dart';
 import 'package:tuda_flow/tuda_flow.dart';
 
 final class DyResourceRepositoryImpl implements DyResourceRepository {
-  final PostgresClient dbClient;
+  final PostgresClient _dbClient;
 
   DyResourceRepositoryImpl({
-    required this.dbClient,
-  });
+    required PostgresClient dbClient,
+  }) : _dbClient = dbClient;
 
   @override
   TaskEither<DyResourceFailure, String> createResource({
@@ -25,20 +25,22 @@ final class DyResourceRepositoryImpl implements DyResourceRepository {
 
   @override
   TaskEither<DyResourceFailure, DyResource> getResourceById(String id) {
-    // TODO: implement getResourceById
-    throw UnimplementedError();
+    return DyResourceDbQuery.selectResourceById(_dbClient, id)
+        .map(
+          (result) => result.toEntity(),
+        )
+        .mapLeft(_mapQueryFailure);
   }
 
   @override
   TaskEither<DyResourceFailure, Iterable<DyResource>> getResources() {
-    return TaskEither.tryCatch(
-      () => DyResourceDbQuery.selectResources(dbClient).then(
-        (results) => results.map((e) => e.toEntity()),
-      ),
-      (failure, stackTrace) => DyResourceFailure.internalServer(
-        message: failure.toString(),
-      ),
-    );
+    return DyResourceDbQuery.selectResources(_dbClient)
+        .map(
+          (results) => results.map(
+            (result) => result.toEntity(),
+          ),
+        )
+        .mapLeft(_mapQueryFailure);
   }
 
   @override
@@ -50,4 +52,17 @@ final class DyResourceRepositoryImpl implements DyResourceRepository {
     // TODO: implement updateResource
     throw UnimplementedError();
   }
+
+  DyResourceFailure _mapQueryFailure(DyResourceFailureType failureType) =>
+      switch (failureType) {
+        DyResourceFailureType.resourceNotFound => DyResourceFailure.notFound(
+            message: 'Resources not found',
+          ),
+        DyResourceFailureType.invalidPayload => DyResourceFailure.badRequest(
+            message: 'Invalid payload',
+          ),
+        DyResourceFailureType.sqlExecutionError => DyResourceFailure.badRequest(
+            message: 'Sql Execution payload',
+          ),
+      };
 }
