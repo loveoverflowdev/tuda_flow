@@ -1,22 +1,31 @@
 import 'package:tuda_flow/tuda_flow.dart';
 
-void main() async {
-  // final results = await DyResourceDbQuery.createResource(
-  //   conn,
+void main() {
+  final client = PostgresClient();
+  // final results = DyResourceDbQuery.createResource(
+  //   client,
   //   creatorId: null,
   //   fields: {
-  //     'content': 'Hello World',
+  //     'content': 'Hello World 2',
   //   },
   //   structureCode: 'post',
   // );
-  final client = PostgresClient();
-  final results = await DyResourceDbQuery.selectResources(
+
+  final results = DyResourceDbQuery.updateResourceById(
     client,
+    "2f7a52d0-0a17-4595-96c2-da51defeaad2",
+    fields: {
+      'contet': 'Hello World 5555555',
+    },
+    structureCode: 'post',
   );
 
-  results.forEach(
-    (element) => print(
-      element.toEntity(),
-    ),
-  );
+  results.match(
+    (failure) {
+      print(failure);
+    },
+    (r) {
+      print(r.toEntity());
+    },
+  ).run();
 }
