@@ -1,8 +1,8 @@
-import 'package:tuda_flow/common.dart';
+import 'package:tuda_flow/tuda_flow.dart';
 
 class DyGroupStructure {
   final String code;
-  final List<DyField> fields;
+  final List<DyGroupField> fields;
   final List<DyGroupMethod> methods;
 
   DyGroupStructure({

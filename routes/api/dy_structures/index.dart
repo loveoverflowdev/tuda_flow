@@ -16,7 +16,7 @@ Future<Response> onRequest(RequestContext context) async {
   );
 }
 
-Response _failureToResponse(DyStructureFailure failure) {
+Response _failureToResponse(DyResourceStructureFailure failure) {
   return failure.when(
     unauthorized: (message) => responseFailure(
       statusCode: HttpStatus.unauthorized,

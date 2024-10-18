@@ -25,22 +25,26 @@ final class DyResourceRepositoryImpl implements DyResourceRepository {
 
   @override
   TaskEither<DyResourceFailure, DyResource> getResourceById(String id) {
-    return DyResourceDbQuery.selectResourceById(_dbClient, id)
-        .map(
-          (result) => result.toEntity(),
-        )
-        .mapLeft(_mapQueryFailure);
+    // TODO: implement updateResource
+    throw UnimplementedError();
+    // return DyResourceDbQuery.selectResourceById(_dbClient, id)
+    //     .map(
+    //       (result) => result.toEntity(),
+    //     )
+    //     .mapLeft(_mapQueryFailure);
   }
 
   @override
   TaskEither<DyResourceFailure, Iterable<DyResource>> getResources() {
-    return DyResourceDbQuery.selectResources(_dbClient)
-        .map(
-          (results) => results.map(
-            (result) => result.toEntity(),
-          ),
-        )
-        .mapLeft(_mapQueryFailure);
+    // TODO: implement updateResource
+    throw UnimplementedError();
+    // return DyResourceDbQuery.selectResources(_dbClient)
+    //     .map(
+    //       (results) => results.map(
+    //         (result) => result.toEntity(),
+    //       ),
+    //     )
+    //     .mapLeft(_mapQueryFailure);
   }
 
   @override

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'dy_structure_failure.dart';
+part of 'dy_resource_structure_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -77,21 +77,22 @@ mixin _$DyStructureFailure {
   /// Create a copy of DyStructureFailure
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DyStructureFailureCopyWith<DyStructureFailure> get copyWith =>
+  $DyStructureFailureCopyWith<DyResourceStructureFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DyStructureFailureCopyWith<$Res> {
-  factory $DyStructureFailureCopyWith(
-          DyStructureFailure value, $Res Function(DyStructureFailure) then) =
-      _$DyStructureFailureCopyWithImpl<$Res, DyStructureFailure>;
+  factory $DyStructureFailureCopyWith(DyResourceStructureFailure value,
+          $Res Function(DyResourceStructureFailure) then) =
+      _$DyStructureFailureCopyWithImpl<$Res, DyResourceStructureFailure>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class _$DyStructureFailureCopyWithImpl<$Res, $Val extends DyStructureFailure>
+class _$DyStructureFailureCopyWithImpl<$Res,
+        $Val extends DyResourceStructureFailure>
     implements $DyStructureFailureCopyWith<$Res> {
   _$DyStructureFailureCopyWithImpl(this._value, this._then);
 
@@ -264,7 +265,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
   }
 }
 
-abstract class _Unauthorized implements DyStructureFailure {
+abstract class _Unauthorized implements DyResourceStructureFailure {
   factory _Unauthorized({required final String message}) = _$UnauthorizedImpl;
 
   @override
@@ -427,7 +428,7 @@ class _$InternalServerImpl implements _InternalServer {
   }
 }
 
-abstract class _InternalServer implements DyStructureFailure {
+abstract class _InternalServer implements DyResourceStructureFailure {
   factory _InternalServer({required final String message}) =
       _$InternalServerImpl;
 
@@ -590,7 +591,7 @@ class _$UndefinedImpl implements _Undefined {
   }
 }
 
-abstract class _Undefined implements DyStructureFailure {
+abstract class _Undefined implements DyResourceStructureFailure {
   factory _Undefined({required final String message}) = _$UndefinedImpl;
 
   @override
@@ -752,7 +753,7 @@ class _$NotFoundImpl implements _NotFound {
   }
 }
 
-abstract class _NotFound implements DyStructureFailure {
+abstract class _NotFound implements DyResourceStructureFailure {
   factory _NotFound({required final String message}) = _$NotFoundImpl;
 
   @override
@@ -914,7 +915,7 @@ class _$BadRequestImpl implements _BadRequest {
   }
 }
 
-abstract class _BadRequest implements DyStructureFailure {
+abstract class _BadRequest implements DyResourceStructureFailure {
   factory _BadRequest({required final String message}) = _$BadRequestImpl;
 
   @override

@@ -25,20 +25,24 @@ class DyResourceStructureResponse {
           DyFieldResponse(
             code: field.code,
             type: switch (field.type) {
-              DyFieldDataType.shortText => DyFieldDataTypeResponse.shortText,
-              DyFieldDataType.double => DyFieldDataTypeResponse.double,
-              DyFieldDataType.int => DyFieldDataTypeResponse.int,
-              DyFieldDataType.markdown => DyFieldDataTypeResponse.markdown,
-              DyFieldDataType.datetime => DyFieldDataTypeResponse.datetime,
-              DyFieldDataType.url => DyFieldDataTypeResponse.url,
-              DyFieldDataType.userRef => DyFieldDataTypeResponse.userRef,
-              DyFieldDataType.dyGroupResourceRef =>
+              DyResourceFieldDataType.shortText =>
+                DyFieldDataTypeResponse.shortText,
+              DyResourceFieldDataType.double => DyFieldDataTypeResponse.double,
+              DyResourceFieldDataType.int => DyFieldDataTypeResponse.int,
+              DyResourceFieldDataType.markdown =>
+                DyFieldDataTypeResponse.markdown,
+              DyResourceFieldDataType.datetime =>
+                DyFieldDataTypeResponse.datetime,
+              DyResourceFieldDataType.url => DyFieldDataTypeResponse.url,
+              DyResourceFieldDataType.userRef =>
+                DyFieldDataTypeResponse.userRef,
+              DyResourceFieldDataType.dyGroupResourceRef =>
                 DyFieldDataTypeResponse.dyGroupResourceRef,
-              DyFieldDataType.dyResourceRef =>
+              DyResourceFieldDataType.dyResourceRef =>
                 DyFieldDataTypeResponse.dyResourceRef,
-              DyFieldDataType.multiUserRef =>
+              DyResourceFieldDataType.multiUserRef =>
                 DyFieldDataTypeResponse.multiUserRef,
-              DyFieldDataType.multiDyResourceRef =>
+              DyResourceFieldDataType.multiDyResourceRef =>
                 DyFieldDataTypeResponse.multiDyResourceRef,
             },
           ),
@@ -48,16 +52,17 @@ class DyResourceStructureResponse {
           DyResourceMethodResponse(
             code: method.code,
             type: switch (method.type) {
-              DyMethodType.create => DyMethodTypeResponse.create,
-              DyMethodType.read => DyMethodTypeResponse.read,
-              DyMethodType.readList => DyMethodTypeResponse.readList,
-              DyMethodType.update => DyMethodTypeResponse.update,
-              DyMethodType.delete => DyMethodTypeResponse.delete,
-              DyMethodType.workflow => DyMethodTypeResponse.workflow,
+              DyResourceMethodType.create => DyMethodTypeResponse.create,
+              DyResourceMethodType.read => DyMethodTypeResponse.read,
+              DyResourceMethodType.readList => DyMethodTypeResponse.readList,
+              DyResourceMethodType.update => DyMethodTypeResponse.update,
+              DyResourceMethodType.delete => DyMethodTypeResponse.delete,
+              DyResourceMethodType.workflow => DyMethodTypeResponse.workflow,
             },
             holderType: switch (method.holderType) {
-              DyMethodHolderType.element => DyMethodHolderTypeResponse.element,
-              DyMethodHolderType.collection =>
+              DyResourceMethodHolderType.element =>
+                DyMethodHolderTypeResponse.element,
+              DyResourceMethodHolderType.collection =>
                 DyMethodHolderTypeResponse.collection,
             },
             targetStructureCode: method.targetStructureCode,

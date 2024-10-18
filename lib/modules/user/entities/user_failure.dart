@@ -1,3 +1,3 @@
-import 'package:tuda_flow/common.dart' show BaseFailure;
+import 'package:tuda_flow/core.dart' show BaseFailure;
 
 class UserFailure implements BaseFailure {}

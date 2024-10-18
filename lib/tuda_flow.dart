@@ -1,2 +1,2 @@
-export 'common.dart';
+export 'core.dart';
 export 'modules.dart';

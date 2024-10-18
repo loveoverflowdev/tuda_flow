@@ -3,7 +3,9 @@ import 'package:postgres/postgres.dart';
 final class PostgresClient {
   late Future<Connection> _connection;
 
-  PostgresClient() {
+  static final PostgresClient shared = PostgresClient._();
+
+  PostgresClient._() {
     _connect();
   }
 
@@ -39,6 +41,23 @@ final class PostgresClient {
       ignoreRows: ignoreRows,
       queryMode: queryMode,
       timeout: timeout,
+    );
+  }
+
+  Future<R> runRx<R>(
+    Future<R> Function(TxSession) fn, {
+    TransactionSettings? settings,
+  }) async {
+    var conn = await _connection;
+
+    if (!conn.isOpen) {
+      _connect();
+      conn = await _connection;
+    }
+
+    return conn.runTx(
+      fn,
+      settings: settings,
     );
   }
 }

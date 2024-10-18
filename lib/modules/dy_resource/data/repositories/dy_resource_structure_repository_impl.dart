@@ -1,51 +1,85 @@
 import 'package:fpdart/fpdart.dart';
+import 'package:tuda_flow/modules/dy_resource/data/db_query/dy_resource_structure_db_query.dart';
 
 import 'package:tuda_flow/tuda_flow.dart'
     show
         DyResourceStructure,
+        DyResourceStructureDbQuery,
+        DyResourceStructureFailure,
         DyResourceStructureRepository,
-        DyStructureFailure,
-        commentStructure,
-        eventStructure,
-        postStructure,
-        practiceTestStructure,
-        practiceTestSubmissionStructure;
+        PostgresClient;
 
 final class DyResourceStructureRepositoryImpl
     implements DyResourceStructureRepository {
-  DyResourceStructureRepositoryImpl() {
-    _structures = [
-      commentStructure(),
-      eventStructure(),
-      postStructure(),
-      practiceTestStructure(),
-      practiceTestSubmissionStructure()
-    ];
-  }
+  final PostgresClient _dbClient;
+
+  DyResourceStructureRepositoryImpl({
+    required PostgresClient dbClient,
+  }) : _dbClient = dbClient;
 
   late final List<DyResourceStructure> _structures;
 
   @override
-  TaskEither<DyStructureFailure, DyResourceStructure> getStructureByCode(
+  TaskEither<DyResourceStructureFailure, DyResourceStructure>
+      getStructureByCode(
     String code,
   ) {
-    final int searchedIndex = _structures.indexWhere(
-      (e) => e.code == code,
+    return DyResourceStructureDbQuery.selectStructureByCode(
+      _dbClient,
+      code,
+    ).mapLeft(
+      _mapQueryFailureType,
     );
-    if (searchedIndex == -1) {
-      return TaskEither.left(
-        DyStructureFailure.notFound(
-          message: 'structure with code "$code" not found',
-        ),
-      );
-    } else {
-      return TaskEither.of(_structures[searchedIndex]);
-    }
   }
 
   @override
-  TaskEither<DyStructureFailure, Iterable<DyResourceStructure>>
+  TaskEither<DyResourceStructureFailure, Iterable<DyResourceStructure>>
       getStructures() {
-    return TaskEither.of(_structures);
+    return DyResourceStructureDbQuery.selectStructures(
+      _dbClient,
+    ).mapLeft(
+      _mapQueryFailureType,
+    );
+  }
+
+  @override
+  TaskEither<DyResourceStructureFailure, DyResourceStructure> createStructure(
+    DyResourceStructure structure,
+  ) {
+    return DyResourceStructureDbQuery.createStructure(
+      _dbClient,
+      structure,
+    ).mapLeft(
+      _mapQueryFailureType,
+    );
+  }
+
+  @override
+  TaskEither<DyResourceStructureFailure, DyResourceStructure>
+      replaceResourceStructureByCode(
+    String code,
+    DyResourceStructure structure,
+  ) {
+    // TODO: implement replaceResourceStructureByCode
+    throw UnimplementedError();
+  }
+
+  DyResourceStructureFailure _mapQueryFailureType(
+    DyResourceStructureFailureType failureType,
+  ) {
+    return switch (failureType) {
+      DyResourceStructureFailureType.resourceStructureNotFound =>
+        DyResourceStructureFailure.notFound(
+          message: 'dy structure not found',
+        ),
+      DyResourceStructureFailureType.invalidPayload =>
+        DyResourceStructureFailure.badRequest(
+          message: 'invalid payload',
+        ),
+      DyResourceStructureFailureType.sqlExecutionError =>
+        DyResourceStructureFailure.internalServer(
+          message: 'sql execution error',
+        ),
+    };
   }
 }
