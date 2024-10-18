@@ -46,10 +46,10 @@ const _$DyFieldDataTypeResponseEnumMap = {
   DyFieldDataTypeResponse.markdown: 'MARKDOWN',
   DyFieldDataTypeResponse.datetime: 'DATETIME',
   DyFieldDataTypeResponse.url: 'URL',
-  DyFieldDataTypeResponse.userRef: 'USER_REF',
+  DyFieldDataTypeResponse.accountRef: 'ACCOUNT_REF',
   DyFieldDataTypeResponse.dyGroupResourceRef: 'DY_GROUP_RESOURCE_REF',
   DyFieldDataTypeResponse.dyResourceRef: 'DY_RESOURCE_REF',
-  DyFieldDataTypeResponse.multiUserRef: 'MULTI_USER_REF',
+  DyFieldDataTypeResponse.multiAccountRef: 'MULTI_ACCOUNT_REF',
   DyFieldDataTypeResponse.multiDyResourceRef: 'MULTI_DY_GROUP_RESOURCE_REF',
 };
 

@@ -1,4 +1,4 @@
-class User {
+class Account {
   final String id;
   final String? avatarUrl;
   final String? username;
@@ -9,7 +9,7 @@ class User {
   final DateTime? updatedAt;
   final String? hashedPassword;
 
-  User({
+  Account({
     required this.id,
     required this.avatarUrl,
     required this.username,
@@ -22,7 +22,7 @@ class User {
   });
 }
 
-class UserBrief {
+class AccountBrief {
   final String id;
   final String? avatarUrl;
   final String? username;
@@ -32,7 +32,7 @@ class UserBrief {
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
-  UserBrief({
+  AccountBrief({
     required this.id,
     required this.avatarUrl,
     required this.username,
@@ -44,14 +44,14 @@ class UserBrief {
   });
 }
 
-class UserItem {
+class AccountItem {
   final String id;
   final String? avatarUrl;
   final String? username;
   final String? firstName;
   final String? lastName;
 
-  UserItem({
+  AccountItem({
     required this.id,
     this.avatarUrl,
     this.username,

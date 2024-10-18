@@ -20,10 +20,10 @@ enum DyResourceFieldDataType {
   markdown('MARKDOWN'),
   datetime('DATETIME'),
   url('URL'),
-  userRef('USER_REF'),
+  accountRef('ACCOUNT_REF'),
   dyGroupResourceRef('DY_GROUP_RESOURCE_REF'),
   dyResourceRef('DY_RESOURCE_REF'),
-  multiUserRef('MULTI_USER_REF'),
+  multiAccountRef('MULTI_ACCOUNT_REF'),
   multiDyResourceRef('MULTI_DY_RESOURCE_REF');
 
   final String raw;

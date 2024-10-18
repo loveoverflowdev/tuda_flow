@@ -34,14 +34,14 @@ class DyResourceStructureResponse {
               DyResourceFieldDataType.datetime =>
                 DyFieldDataTypeResponse.datetime,
               DyResourceFieldDataType.url => DyFieldDataTypeResponse.url,
-              DyResourceFieldDataType.userRef =>
-                DyFieldDataTypeResponse.userRef,
+              DyResourceFieldDataType.accountRef =>
+                DyFieldDataTypeResponse.accountRef,
               DyResourceFieldDataType.dyGroupResourceRef =>
                 DyFieldDataTypeResponse.dyGroupResourceRef,
               DyResourceFieldDataType.dyResourceRef =>
                 DyFieldDataTypeResponse.dyResourceRef,
-              DyResourceFieldDataType.multiUserRef =>
-                DyFieldDataTypeResponse.multiUserRef,
+              DyResourceFieldDataType.multiAccountRef =>
+                DyFieldDataTypeResponse.multiAccountRef,
               DyResourceFieldDataType.multiDyResourceRef =>
                 DyFieldDataTypeResponse.multiDyResourceRef,
             },
@@ -112,8 +112,8 @@ enum DyFieldDataTypeResponse {
   @JsonValue('URL')
   url,
 
-  @JsonValue('USER_REF')
-  userRef,
+  @JsonValue('ACCOUNT_REF')
+  accountRef,
 
   @JsonValue('DY_GROUP_RESOURCE_REF')
   dyGroupResourceRef,
@@ -121,8 +121,8 @@ enum DyFieldDataTypeResponse {
   @JsonValue('DY_RESOURCE_REF')
   dyResourceRef,
 
-  @JsonValue('MULTI_USER_REF')
-  multiUserRef,
+  @JsonValue('MULTI_ACCOUNT_REF')
+  multiAccountRef,
 
   @JsonValue('MULTI_DY_GROUP_RESOURCE_REF')
   multiDyResourceRef,

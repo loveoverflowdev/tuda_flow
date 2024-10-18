@@ -4,12 +4,12 @@ import 'package:tuda_flow/tuda_flow.dart'
 /// Represents a notification message in the system.
 ///
 /// A notification is created when an action occurs in the system,
-/// and it is sent to the users (notifiers) who should be informed about it.
+/// and it is sent to the accounts (notifiers) who should be informed about it.
 class Notification {
   /// Creates a new `Notification`.
   ///
-  /// - [actorId] is the ID of the user who performed the action.
-  /// - [notifierIds] is the list of users who will receive the notification.
+  /// - [actorId] is the ID of the account who performed the action.
+  /// - [notifierIds] is the list of accounts who will receive the notification.
   /// - [entity] is the domain entity associated with the notification.
   /// - [type] is the type of the notification (new assignment, comment, ...)
   const Notification({
@@ -21,14 +21,14 @@ class Notification {
 
   /// The ID of the actor who initiated the action.
   ///
-  /// This could be the ID of a user (e.g., a teacher or a student)
+  /// This could be the ID of a account (e.g., a teacher or a student)
   /// who triggered the notification, such as posting an assignment
   /// or sending a comment.
   final String actorId;
 
-  /// The list of IDs of the users who will receive the notification.
+  /// The list of IDs of the accounts who will receive the notification.
   ///
-  /// These users are the "notifiers" who will be informed of the action
+  /// These accounts are the "notifiers" who will be informed of the action
   /// performed by the actor. For example, the students in a class may
   /// receive notifications about new assignments.
   final Iterable<String> notifierIds;
