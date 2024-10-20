@@ -2,18 +2,34 @@ import 'package:postgres/postgres.dart';
 import 'package:tuda_flow/tuda_flow.dart';
 
 extension DyResourceDataSerialization on DyResource {
-  static DyResource fromJson(Map json) {
+  static DyResource fromJson(
+    Map json, {
+    required DyResourceStructure structure,
+  }) {
+    final dyFields = <String, dynamic>{};
+    for (final field in structure.dyFields) {
+      dyFields[field.code] = json[field.code];
+    }
     return DyResource(
       id: json['id'] as String,
-      structureCode: json['structure_code'] as String,
-      fields: (json['fields'] as Map<String, dynamic>?) ?? {},
-      createdAt: DateTime.parse(json['created_at'] as String),
-      updatedAt: DateTime.parse(json['updated_at'] as String),
+      dyFields: dyFields,
+      createdAt: json['created_at'] is DateTime
+          ? json['created_at'] as DateTime
+          : DateTime.parse(json['created_at'] as String),
+      updatedAt: json['updated_at'] is DateTime
+          ? json['updated_at'] as DateTime
+          : DateTime.parse(json['updated_at'] as String),
     );
   }
 
-  static DyResource fromResultRow(ResultRow row) {
-    return DyResourceDataSerialization.fromJson(row.toColumnMap());
+  static DyResource fromResultRow(
+    ResultRow row, {
+    required DyResourceStructure structure,
+  }) {
+    return DyResourceDataSerialization.fromJson(
+      row.toColumnMap(),
+      structure: structure,
+    );
   }
 }
 
@@ -21,7 +37,7 @@ extension DyResourceStructureDataSerialization on DyResourceStructure {
   static DyResourceStructure fromJson(Map json) {
     return DyResourceStructure(
       code: json['code'] as String,
-      fields: (json['fields'] as Iterable? ?? []).map(
+      dyFields: (json['dy_fields'] as Iterable? ?? []).map(
         (field) => DyResourceField(
           code: field['code'] as String,
           type: DyResourceFieldDataType.values.firstWhere(
@@ -58,7 +74,7 @@ extension DyResourceStructureDataSerialization on DyResourceStructure {
 //   const DyResourceResult({
 //     required this.id,
 //     required this.structureCode,
-//     this.fields = const {},
+//     this.dyFields = const {},
 //     required this.createdAt,
 //     required this.updatedAt,
 //     required this.creatorId,
@@ -70,8 +86,8 @@ extension DyResourceStructureDataSerialization on DyResourceStructure {
 //   @JsonKey(name: 'structure_code')
 //   final String structureCode;
 
-//   @JsonKey(name: 'fields')
-//   final Map<String, dynamic> fields;
+//   @JsonKey(name: 'dyFields')
+//   final Map<String, dynamic> dyFields;
 
 //   @JsonKey(name: 'creator_id')
 //   final String? creatorId;
@@ -86,7 +102,7 @@ extension DyResourceStructureDataSerialization on DyResourceStructure {
 //     return DyResource(
 //       id: id,
 //       structureCode: structureCode,
-//       fields: fields,
+//       dyFields: dyFields,
 //       createdAt: createdAt,
 //       updatedAt: updatedAt,
 //     );

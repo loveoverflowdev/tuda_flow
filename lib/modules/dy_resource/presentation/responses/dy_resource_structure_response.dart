@@ -6,12 +6,12 @@ part 'dy_resource_structure_response.g.dart';
 @JsonSerializable()
 class DyResourceStructureResponse {
   final String code;
-  final List<DyFieldResponse> fields;
+  final List<DyFieldResponse> dyFields;
   final List<DyResourceMethodResponse>? methods;
 
   const DyResourceStructureResponse({
     required this.code,
-    required this.fields,
+    required this.dyFields,
     this.methods,
   });
 
@@ -20,8 +20,8 @@ class DyResourceStructureResponse {
   ) {
     return DyResourceStructureResponse(
       code: entity.code,
-      fields: [
-        for (final field in entity.fields)
+      dyFields: [
+        for (final field in entity.dyFields)
           DyFieldResponse(
             code: field.code,
             type: switch (field.type) {

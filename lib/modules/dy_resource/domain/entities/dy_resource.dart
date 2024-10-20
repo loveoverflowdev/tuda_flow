@@ -1,20 +1,20 @@
 class DyResource {
   final String id;
-  final String structureCode;
-  final Map<String, dynamic>? fields;
+  final Map<String, dynamic>? dyFields;
   final DateTime createdAt;
   final DateTime updatedAt;
+  final String? creatorId;
 
   const DyResource({
     required this.id,
-    required this.structureCode,
-    this.fields,
+    this.dyFields,
     required this.createdAt,
     required this.updatedAt,
+    this.creatorId,
   });
 
   @override
   String toString() {
-    return 'DyResource(id: $id, structureCode: $structureCode, fields: $fields, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'DyResource(id: $id, dyFields: $dyFields, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 }

@@ -5,7 +5,7 @@ final class DyGroupRepositoryImpl implements DyGroupRepository {
   @override
   TaskEither<DyGroupFailure, void> createGroup({
     required String structureCode,
-    Map<String, dynamic>? fields,
+    Map<String, dynamic>? dyFields,
   }) {
     // TODO: implement createGroup
     throw UnimplementedError();
@@ -33,7 +33,7 @@ final class DyGroupRepositoryImpl implements DyGroupRepository {
   TaskEither<DyGroupFailure, void> updateGroup({
     required String id,
     required String structureCode,
-    Map<String, dynamic>? fields,
+    Map<String, dynamic>? dyFields,
   }) {
     // TODO: implement updateGroup
     throw UnimplementedError();

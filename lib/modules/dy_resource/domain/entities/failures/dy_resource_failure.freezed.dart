@@ -23,6 +23,7 @@ mixin _$DyResourceFailure {
     required TResult Function(String message) internalServer,
     required TResult Function(String message) undefined,
     required TResult Function(String message) notFound,
+    required TResult Function(String message) structureNotFound,
     required TResult Function(String message) badRequest,
   }) =>
       throw _privateConstructorUsedError;
@@ -32,6 +33,7 @@ mixin _$DyResourceFailure {
     TResult? Function(String message)? internalServer,
     TResult? Function(String message)? undefined,
     TResult? Function(String message)? notFound,
+    TResult? Function(String message)? structureNotFound,
     TResult? Function(String message)? badRequest,
   }) =>
       throw _privateConstructorUsedError;
@@ -41,6 +43,7 @@ mixin _$DyResourceFailure {
     TResult Function(String message)? internalServer,
     TResult Function(String message)? undefined,
     TResult Function(String message)? notFound,
+    TResult Function(String message)? structureNotFound,
     TResult Function(String message)? badRequest,
     required TResult orElse(),
   }) =>
@@ -51,6 +54,7 @@ mixin _$DyResourceFailure {
     required TResult Function(_InternalServer value) internalServer,
     required TResult Function(_Undefined value) undefined,
     required TResult Function(_NotFound value) notFound,
+    required TResult Function(_StructureNotFound value) structureNotFound,
     required TResult Function(_BadRequest value) badRequest,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +64,7 @@ mixin _$DyResourceFailure {
     TResult? Function(_InternalServer value)? internalServer,
     TResult? Function(_Undefined value)? undefined,
     TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_StructureNotFound value)? structureNotFound,
     TResult? Function(_BadRequest value)? badRequest,
   }) =>
       throw _privateConstructorUsedError;
@@ -69,13 +74,14 @@ mixin _$DyResourceFailure {
     TResult Function(_InternalServer value)? internalServer,
     TResult Function(_Undefined value)? undefined,
     TResult Function(_NotFound value)? notFound,
+    TResult Function(_StructureNotFound value)? structureNotFound,
     TResult Function(_BadRequest value)? badRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   $DyResourceFailureCopyWith<DyResourceFailure> get copyWith =>
       throw _privateConstructorUsedError;
@@ -101,7 +107,7 @@ class _$DyResourceFailureCopyWithImpl<$Res, $Val extends DyResourceFailure>
   final $Res Function($Val) _then;
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -136,7 +142,7 @@ class __$$UnauthorizedImplCopyWithImpl<$Res>
       : super(_value, _then);
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -176,7 +182,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
   int get hashCode => Object.hash(runtimeType, message);
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -190,6 +196,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     required TResult Function(String message) internalServer,
     required TResult Function(String message) undefined,
     required TResult Function(String message) notFound,
+    required TResult Function(String message) structureNotFound,
     required TResult Function(String message) badRequest,
   }) {
     return unauthorized(message);
@@ -202,6 +209,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     TResult? Function(String message)? internalServer,
     TResult? Function(String message)? undefined,
     TResult? Function(String message)? notFound,
+    TResult? Function(String message)? structureNotFound,
     TResult? Function(String message)? badRequest,
   }) {
     return unauthorized?.call(message);
@@ -214,6 +222,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     TResult Function(String message)? internalServer,
     TResult Function(String message)? undefined,
     TResult Function(String message)? notFound,
+    TResult Function(String message)? structureNotFound,
     TResult Function(String message)? badRequest,
     required TResult orElse(),
   }) {
@@ -230,6 +239,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     required TResult Function(_InternalServer value) internalServer,
     required TResult Function(_Undefined value) undefined,
     required TResult Function(_NotFound value) notFound,
+    required TResult Function(_StructureNotFound value) structureNotFound,
     required TResult Function(_BadRequest value) badRequest,
   }) {
     return unauthorized(this);
@@ -242,6 +252,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     TResult? Function(_InternalServer value)? internalServer,
     TResult? Function(_Undefined value)? undefined,
     TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_StructureNotFound value)? structureNotFound,
     TResult? Function(_BadRequest value)? badRequest,
   }) {
     return unauthorized?.call(this);
@@ -254,6 +265,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     TResult Function(_InternalServer value)? internalServer,
     TResult Function(_Undefined value)? undefined,
     TResult Function(_NotFound value)? notFound,
+    TResult Function(_StructureNotFound value)? structureNotFound,
     TResult Function(_BadRequest value)? badRequest,
     required TResult orElse(),
   }) {
@@ -271,7 +283,7 @@ abstract class _Unauthorized implements DyResourceFailure {
   String get message;
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UnauthorizedImplCopyWith<_$UnauthorizedImpl> get copyWith =>
@@ -298,7 +310,7 @@ class __$$InternalServerImplCopyWithImpl<$Res>
       : super(_value, _then);
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -338,7 +350,7 @@ class _$InternalServerImpl implements _InternalServer {
   int get hashCode => Object.hash(runtimeType, message);
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -353,6 +365,7 @@ class _$InternalServerImpl implements _InternalServer {
     required TResult Function(String message) internalServer,
     required TResult Function(String message) undefined,
     required TResult Function(String message) notFound,
+    required TResult Function(String message) structureNotFound,
     required TResult Function(String message) badRequest,
   }) {
     return internalServer(message);
@@ -365,6 +378,7 @@ class _$InternalServerImpl implements _InternalServer {
     TResult? Function(String message)? internalServer,
     TResult? Function(String message)? undefined,
     TResult? Function(String message)? notFound,
+    TResult? Function(String message)? structureNotFound,
     TResult? Function(String message)? badRequest,
   }) {
     return internalServer?.call(message);
@@ -377,6 +391,7 @@ class _$InternalServerImpl implements _InternalServer {
     TResult Function(String message)? internalServer,
     TResult Function(String message)? undefined,
     TResult Function(String message)? notFound,
+    TResult Function(String message)? structureNotFound,
     TResult Function(String message)? badRequest,
     required TResult orElse(),
   }) {
@@ -393,6 +408,7 @@ class _$InternalServerImpl implements _InternalServer {
     required TResult Function(_InternalServer value) internalServer,
     required TResult Function(_Undefined value) undefined,
     required TResult Function(_NotFound value) notFound,
+    required TResult Function(_StructureNotFound value) structureNotFound,
     required TResult Function(_BadRequest value) badRequest,
   }) {
     return internalServer(this);
@@ -405,6 +421,7 @@ class _$InternalServerImpl implements _InternalServer {
     TResult? Function(_InternalServer value)? internalServer,
     TResult? Function(_Undefined value)? undefined,
     TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_StructureNotFound value)? structureNotFound,
     TResult? Function(_BadRequest value)? badRequest,
   }) {
     return internalServer?.call(this);
@@ -417,6 +434,7 @@ class _$InternalServerImpl implements _InternalServer {
     TResult Function(_InternalServer value)? internalServer,
     TResult Function(_Undefined value)? undefined,
     TResult Function(_NotFound value)? notFound,
+    TResult Function(_StructureNotFound value)? structureNotFound,
     TResult Function(_BadRequest value)? badRequest,
     required TResult orElse(),
   }) {
@@ -435,7 +453,7 @@ abstract class _InternalServer implements DyResourceFailure {
   String get message;
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InternalServerImplCopyWith<_$InternalServerImpl> get copyWith =>
@@ -462,7 +480,7 @@ class __$$UndefinedImplCopyWithImpl<$Res>
       : super(_value, _then);
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -502,7 +520,7 @@ class _$UndefinedImpl implements _Undefined {
   int get hashCode => Object.hash(runtimeType, message);
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -516,6 +534,7 @@ class _$UndefinedImpl implements _Undefined {
     required TResult Function(String message) internalServer,
     required TResult Function(String message) undefined,
     required TResult Function(String message) notFound,
+    required TResult Function(String message) structureNotFound,
     required TResult Function(String message) badRequest,
   }) {
     return undefined(message);
@@ -528,6 +547,7 @@ class _$UndefinedImpl implements _Undefined {
     TResult? Function(String message)? internalServer,
     TResult? Function(String message)? undefined,
     TResult? Function(String message)? notFound,
+    TResult? Function(String message)? structureNotFound,
     TResult? Function(String message)? badRequest,
   }) {
     return undefined?.call(message);
@@ -540,6 +560,7 @@ class _$UndefinedImpl implements _Undefined {
     TResult Function(String message)? internalServer,
     TResult Function(String message)? undefined,
     TResult Function(String message)? notFound,
+    TResult Function(String message)? structureNotFound,
     TResult Function(String message)? badRequest,
     required TResult orElse(),
   }) {
@@ -556,6 +577,7 @@ class _$UndefinedImpl implements _Undefined {
     required TResult Function(_InternalServer value) internalServer,
     required TResult Function(_Undefined value) undefined,
     required TResult Function(_NotFound value) notFound,
+    required TResult Function(_StructureNotFound value) structureNotFound,
     required TResult Function(_BadRequest value) badRequest,
   }) {
     return undefined(this);
@@ -568,6 +590,7 @@ class _$UndefinedImpl implements _Undefined {
     TResult? Function(_InternalServer value)? internalServer,
     TResult? Function(_Undefined value)? undefined,
     TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_StructureNotFound value)? structureNotFound,
     TResult? Function(_BadRequest value)? badRequest,
   }) {
     return undefined?.call(this);
@@ -580,6 +603,7 @@ class _$UndefinedImpl implements _Undefined {
     TResult Function(_InternalServer value)? internalServer,
     TResult Function(_Undefined value)? undefined,
     TResult Function(_NotFound value)? notFound,
+    TResult Function(_StructureNotFound value)? structureNotFound,
     TResult Function(_BadRequest value)? badRequest,
     required TResult orElse(),
   }) {
@@ -597,7 +621,7 @@ abstract class _Undefined implements DyResourceFailure {
   String get message;
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UndefinedImplCopyWith<_$UndefinedImpl> get copyWith =>
@@ -624,7 +648,7 @@ class __$$NotFoundImplCopyWithImpl<$Res>
       : super(_value, _then);
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -664,7 +688,7 @@ class _$NotFoundImpl implements _NotFound {
   int get hashCode => Object.hash(runtimeType, message);
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -678,6 +702,7 @@ class _$NotFoundImpl implements _NotFound {
     required TResult Function(String message) internalServer,
     required TResult Function(String message) undefined,
     required TResult Function(String message) notFound,
+    required TResult Function(String message) structureNotFound,
     required TResult Function(String message) badRequest,
   }) {
     return notFound(message);
@@ -690,6 +715,7 @@ class _$NotFoundImpl implements _NotFound {
     TResult? Function(String message)? internalServer,
     TResult? Function(String message)? undefined,
     TResult? Function(String message)? notFound,
+    TResult? Function(String message)? structureNotFound,
     TResult? Function(String message)? badRequest,
   }) {
     return notFound?.call(message);
@@ -702,6 +728,7 @@ class _$NotFoundImpl implements _NotFound {
     TResult Function(String message)? internalServer,
     TResult Function(String message)? undefined,
     TResult Function(String message)? notFound,
+    TResult Function(String message)? structureNotFound,
     TResult Function(String message)? badRequest,
     required TResult orElse(),
   }) {
@@ -718,6 +745,7 @@ class _$NotFoundImpl implements _NotFound {
     required TResult Function(_InternalServer value) internalServer,
     required TResult Function(_Undefined value) undefined,
     required TResult Function(_NotFound value) notFound,
+    required TResult Function(_StructureNotFound value) structureNotFound,
     required TResult Function(_BadRequest value) badRequest,
   }) {
     return notFound(this);
@@ -730,6 +758,7 @@ class _$NotFoundImpl implements _NotFound {
     TResult? Function(_InternalServer value)? internalServer,
     TResult? Function(_Undefined value)? undefined,
     TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_StructureNotFound value)? structureNotFound,
     TResult? Function(_BadRequest value)? badRequest,
   }) {
     return notFound?.call(this);
@@ -742,6 +771,7 @@ class _$NotFoundImpl implements _NotFound {
     TResult Function(_InternalServer value)? internalServer,
     TResult Function(_Undefined value)? undefined,
     TResult Function(_NotFound value)? notFound,
+    TResult Function(_StructureNotFound value)? structureNotFound,
     TResult Function(_BadRequest value)? badRequest,
     required TResult orElse(),
   }) {
@@ -759,10 +789,180 @@ abstract class _NotFound implements DyResourceFailure {
   String get message;
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NotFoundImplCopyWith<_$NotFoundImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$StructureNotFoundImplCopyWith<$Res>
+    implements $DyResourceFailureCopyWith<$Res> {
+  factory _$$StructureNotFoundImplCopyWith(_$StructureNotFoundImpl value,
+          $Res Function(_$StructureNotFoundImpl) then) =
+      __$$StructureNotFoundImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$StructureNotFoundImplCopyWithImpl<$Res>
+    extends _$DyResourceFailureCopyWithImpl<$Res, _$StructureNotFoundImpl>
+    implements _$$StructureNotFoundImplCopyWith<$Res> {
+  __$$StructureNotFoundImplCopyWithImpl(_$StructureNotFoundImpl _value,
+      $Res Function(_$StructureNotFoundImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DyResourceFailure
+  /// with the given dyFields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$StructureNotFoundImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StructureNotFoundImpl implements _StructureNotFound {
+  _$StructureNotFoundImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'DyResourceFailure.structureNotFound(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StructureNotFoundImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of DyResourceFailure
+  /// with the given dyFields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StructureNotFoundImplCopyWith<_$StructureNotFoundImpl> get copyWith =>
+      __$$StructureNotFoundImplCopyWithImpl<_$StructureNotFoundImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) unauthorized,
+    required TResult Function(String message) internalServer,
+    required TResult Function(String message) undefined,
+    required TResult Function(String message) notFound,
+    required TResult Function(String message) structureNotFound,
+    required TResult Function(String message) badRequest,
+  }) {
+    return structureNotFound(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? unauthorized,
+    TResult? Function(String message)? internalServer,
+    TResult? Function(String message)? undefined,
+    TResult? Function(String message)? notFound,
+    TResult? Function(String message)? structureNotFound,
+    TResult? Function(String message)? badRequest,
+  }) {
+    return structureNotFound?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? unauthorized,
+    TResult Function(String message)? internalServer,
+    TResult Function(String message)? undefined,
+    TResult Function(String message)? notFound,
+    TResult Function(String message)? structureNotFound,
+    TResult Function(String message)? badRequest,
+    required TResult orElse(),
+  }) {
+    if (structureNotFound != null) {
+      return structureNotFound(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_InternalServer value) internalServer,
+    required TResult Function(_Undefined value) undefined,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_StructureNotFound value) structureNotFound,
+    required TResult Function(_BadRequest value) badRequest,
+  }) {
+    return structureNotFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_InternalServer value)? internalServer,
+    TResult? Function(_Undefined value)? undefined,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_StructureNotFound value)? structureNotFound,
+    TResult? Function(_BadRequest value)? badRequest,
+  }) {
+    return structureNotFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_InternalServer value)? internalServer,
+    TResult Function(_Undefined value)? undefined,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_StructureNotFound value)? structureNotFound,
+    TResult Function(_BadRequest value)? badRequest,
+    required TResult orElse(),
+  }) {
+    if (structureNotFound != null) {
+      return structureNotFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StructureNotFound implements DyResourceFailure {
+  factory _StructureNotFound({required final String message}) =
+      _$StructureNotFoundImpl;
+
+  @override
+  String get message;
+
+  /// Create a copy of DyResourceFailure
+  /// with the given dyFields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$StructureNotFoundImplCopyWith<_$StructureNotFoundImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -786,7 +986,7 @@ class __$$BadRequestImplCopyWithImpl<$Res>
       : super(_value, _then);
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -826,7 +1026,7 @@ class _$BadRequestImpl implements _BadRequest {
   int get hashCode => Object.hash(runtimeType, message);
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -840,6 +1040,7 @@ class _$BadRequestImpl implements _BadRequest {
     required TResult Function(String message) internalServer,
     required TResult Function(String message) undefined,
     required TResult Function(String message) notFound,
+    required TResult Function(String message) structureNotFound,
     required TResult Function(String message) badRequest,
   }) {
     return badRequest(message);
@@ -852,6 +1053,7 @@ class _$BadRequestImpl implements _BadRequest {
     TResult? Function(String message)? internalServer,
     TResult? Function(String message)? undefined,
     TResult? Function(String message)? notFound,
+    TResult? Function(String message)? structureNotFound,
     TResult? Function(String message)? badRequest,
   }) {
     return badRequest?.call(message);
@@ -864,6 +1066,7 @@ class _$BadRequestImpl implements _BadRequest {
     TResult Function(String message)? internalServer,
     TResult Function(String message)? undefined,
     TResult Function(String message)? notFound,
+    TResult Function(String message)? structureNotFound,
     TResult Function(String message)? badRequest,
     required TResult orElse(),
   }) {
@@ -880,6 +1083,7 @@ class _$BadRequestImpl implements _BadRequest {
     required TResult Function(_InternalServer value) internalServer,
     required TResult Function(_Undefined value) undefined,
     required TResult Function(_NotFound value) notFound,
+    required TResult Function(_StructureNotFound value) structureNotFound,
     required TResult Function(_BadRequest value) badRequest,
   }) {
     return badRequest(this);
@@ -892,6 +1096,7 @@ class _$BadRequestImpl implements _BadRequest {
     TResult? Function(_InternalServer value)? internalServer,
     TResult? Function(_Undefined value)? undefined,
     TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_StructureNotFound value)? structureNotFound,
     TResult? Function(_BadRequest value)? badRequest,
   }) {
     return badRequest?.call(this);
@@ -904,6 +1109,7 @@ class _$BadRequestImpl implements _BadRequest {
     TResult Function(_InternalServer value)? internalServer,
     TResult Function(_Undefined value)? undefined,
     TResult Function(_NotFound value)? notFound,
+    TResult Function(_StructureNotFound value)? structureNotFound,
     TResult Function(_BadRequest value)? badRequest,
     required TResult orElse(),
   }) {
@@ -921,7 +1127,7 @@ abstract class _BadRequest implements DyResourceFailure {
   String get message;
 
   /// Create a copy of DyResourceFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// with the given dyFields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BadRequestImplCopyWith<_$BadRequestImpl> get copyWith =>

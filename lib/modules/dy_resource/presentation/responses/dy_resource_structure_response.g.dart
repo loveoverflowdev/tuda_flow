@@ -10,7 +10,7 @@ DyResourceStructureResponse _$DyResourceStructureResponseFromJson(
         Map<String, dynamic> json) =>
     DyResourceStructureResponse(
       code: json['code'] as String,
-      fields: (json['fields'] as List<dynamic>)
+      dyFields: (json['dyFields'] as List<dynamic>)
           .map((e) => DyFieldResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
       methods: (json['methods'] as List<dynamic>?)
@@ -23,7 +23,7 @@ Map<String, dynamic> _$DyResourceStructureResponseToJson(
         DyResourceStructureResponse instance) =>
     <String, dynamic>{
       'code': instance.code,
-      'fields': instance.fields,
+      'dyFields': instance.dyFields,
       'methods': instance.methods,
     };
 

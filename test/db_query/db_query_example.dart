@@ -5,7 +5,7 @@ void main() {
   // final results = DyResourceDbQuery.createResource(
   //   client,
   //   creatorId: null,
-  //   fields: {
+  //   dyFields: {
   //     'content': 'Hello World 2',
   //   },
   //   structureCode: 'post',
@@ -14,7 +14,7 @@ void main() {
   // final results = DyResourceDbQuery.updateResourceById(
   //   client,
   //   "2f7a52d0-0a17-4595-96c2-da51defeaad2",
-  //   fields: {
+  //   dyFields: {
   //     'contet': 'Hello World 5555555',
   //   },
   //   structureCode: 'post',
@@ -24,7 +24,7 @@ void main() {
   //   client,
   //   DyResourceStructure(
   //     code: 'dummy_post_4',
-  //     fields: [
+  //     dyFields: [
   //       DyResourceField(
   //         code: 'title',
   //         type: DyResourceFieldDataType.shortText,
@@ -54,7 +54,7 @@ void main() {
     client,
     DyResourceStructure(
       code: 'dummy_cont_2',
-      fields: [
+      dyFields: [
         DyResourceField(
           code: 'code',
           type: DyResourceFieldDataType.shortText,

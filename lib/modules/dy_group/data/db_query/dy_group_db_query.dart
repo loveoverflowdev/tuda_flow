@@ -13,7 +13,7 @@ import 'package:tuda_flow/tuda_flow.dart';
 // SELECT
 //     id,
 //     structure_code,
-//     fields,
+//     dyFields,
 //     created_at,
 //     updated_at
 // FROM dy_groups;
@@ -34,7 +34,7 @@ import 'package:tuda_flow/tuda_flow.dart';
 // SELECT
 //     id,
 //     structure_code,
-//     fields,
+//     dyFields,
 //     created_at,
 //     updated_at
 // FROM dy_groups
@@ -60,14 +60,14 @@ import 'package:tuda_flow/tuda_flow.dart';
 //     PostgresClient client, {
 //     required String structureCode,
 //     required String? creatorId,
-//     required Map<String, dynamic> fields,
+//     required Map<String, dynamic> dyFields,
 //   }) {
-//     final fieldsJson = jsonEncode(fields);
+//     final dyFieldsJson = jsonEncode(dyFields);
 //     return client.execute('''
-//     INSERT INTO dy_groups (structure_code, fields, creator_id, created_at, updated_at)
+//     INSERT INTO dy_groups (structure_code, dyFields, creator_id, created_at, updated_at)
 //     VALUES (
 //         '$structureCode',
-//         '$fieldsJson',
+//         '$dyFieldsJson',
 //         '$creatorId',
 //         NOW(),
 //         NOW()
@@ -80,24 +80,24 @@ import 'package:tuda_flow/tuda_flow.dart';
 //     PostgresClient client,
 //     String id, {
 //     required String structureCode,
-//     required Map<String, dynamic> fields,
+//     required Map<String, dynamic> dyFields,
 //   }) async {
 //     // First, check if the group exists
 //     final group = await selectGroupById(client, id: id);
 
 //     if (group != null) {
 //       // If the group exists, proceed with the update
-//       final fieldsJson = jsonEncode(fields);
+//       final dyFieldsJson = jsonEncode(dyFields);
 //       return client.execute('''
 //         UPDATE dy_groups
 //         SET
 //           structure_code = @structureCode,
-//           fields = @fields,
+//           dyFields = @dyFields,
 //           updated_at = NOW()
 //         WHERE id = @id;
 //       ''', parameters: {
 //         'structureCode': structureCode,
-//         'fields': fieldsJson,
+//         'dyFields': dyFieldsJson,
 //         'id': id,
 //       });
 //     } else {
@@ -147,7 +147,7 @@ enum DyGroupFailureType {
 // SELECT 
 //     id, 
 //     structure_code, 
-//     fields, 
+//     dyFields, 
 //     created_at, 
 //     updated_at,
 //     creator_id
@@ -177,7 +177,7 @@ enum DyGroupFailureType {
 //     SELECT 
 //       id, 
 //       structure_code, 
-//       fields, 
+//       dyFields, 
 //       created_at, 
 //       updated_at,
 //       creator_id
@@ -211,25 +211,25 @@ enum DyGroupFailureType {
 //     PostgresClient client, {
 //     required String structureCode,
 //     required String? creatorId,
-//     required Map<String, dynamic> fields,
+//     required Map<String, dynamic> dyFields,
 //   }) {
 //     return TaskEither.tryCatch(
 //       () async {
-//         final fieldsJson = jsonEncode(fields);
+//         final dyFieldsJson = jsonEncode(dyFields);
 //         final result = await client.execute(
 //           Sql.named('''
-//     INSERT INTO dy_resources (structure_code, fields, creator_id, created_at, updated_at) 
+//     INSERT INTO dy_resources (structure_code, dyFields, creator_id, created_at, updated_at) 
 //     VALUES (
 //         @structure_code, 
-//         @fields,
+//         @dyFields,
 //         @creator_id,
 //         NOW(),  
 //         NOW()  
-//     ) RETURNING id, structure_code, fields, creator_id, created_at, updated_at;
+//     ) RETURNING id, structure_code, dyFields, creator_id, created_at, updated_at;
 // '''),
 //           parameters: {
 //             'structure_code': structureCode,
-//             'fields': fieldsJson,
+//             'dyFields': dyFieldsJson,
 //             'creator_id': null,
 //           },
 //         );
@@ -248,14 +248,14 @@ enum DyGroupFailureType {
 //     PostgresClient client,
 //     String id, {
 //     required String structureCode,
-//     required Map<String, dynamic> fields,
+//     required Map<String, dynamic> dyFields,
 //   }) {
 //     return selectResourceById(client, id).flatMap(
 //       (dyResource) {
-//         final overridedFields = dyResource.fields;
+//         final overridedFields = dyResource.dyFields;
 
-//         for (final field in fields.entries) {
-//           if (dyResource.fields.containsKey(field.key)) {
+//         for (final field in dyFields.entries) {
+//           if (dyResource.dyFields.containsKey(field.key)) {
 //             overridedFields[field.key] = field.value;
 //           } else {
 //             return TaskEither.left(
@@ -266,19 +266,19 @@ enum DyGroupFailureType {
 
 //         return TaskEither.tryCatch(
 //           () async {
-//             final fieldsJson = jsonEncode(fields);
+//             final dyFieldsJson = jsonEncode(dyFields);
 //             final result = await client.execute(
 //               Sql.named('''
 //       UPDATE dy_resources
 //       SET 
 //         structure_code = @structure_code,
-//         fields = @fields,
+//         dyFields = @dyFields,
 //         updated_at = NOW()
-//       WHERE id = @id RETURNING id, structure_code, fields, creator_id, created_at, updated_at;
+//       WHERE id = @id RETURNING id, structure_code, dyFields, creator_id, created_at, updated_at;
 //     '''),
 //               parameters: {
 //                 'structure_code': structureCode,
-//                 'fields': fieldsJson,
+//                 'dyFields': dyFieldsJson,
 //                 'id': id,
 //               },
 //             );
@@ -307,7 +307,7 @@ enum DyGroupFailureType {
 //             Sql.named(
 //               '''
 //       DELETE FROM dy_resources
-//       WHERE id = @id RETURNING id, structure_code, fields, creator_id, created_at, updated_at;
+//       WHERE id = @id RETURNING id, structure_code, dyFields, creator_id, created_at, updated_at;
 //     ''',
 //             ),
 //             parameters: {

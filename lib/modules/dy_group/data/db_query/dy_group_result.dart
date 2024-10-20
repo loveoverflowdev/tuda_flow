@@ -10,8 +10,8 @@ final class DyGroupResult {
   @JsonKey(name: 'structure_code')
   final String structureCode;
 
-  @JsonKey(name: 'fields')
-  final Map<String, dynamic> fields;
+  @JsonKey(name: 'dyFields')
+  final Map<String, dynamic> dyFields;
 
   @JsonKey(name: 'created_at', fromJson: _dateTimeFromJson)
   final DateTime createdAt;
@@ -22,7 +22,7 @@ final class DyGroupResult {
   DyGroupResult({
     required this.id,
     required this.structureCode,
-    required this.fields,
+    required this.dyFields,
     required this.createdAt,
     required this.updatedAt,
   });

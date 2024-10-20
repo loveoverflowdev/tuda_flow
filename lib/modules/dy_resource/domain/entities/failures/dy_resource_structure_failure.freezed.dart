@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$DyStructureFailure {
+mixin _$DyResourceStructureFailure {
   String get message => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -74,35 +74,36 @@ mixin _$DyStructureFailure {
   }) =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DyStructureFailureCopyWith<DyResourceStructureFailure> get copyWith =>
-      throw _privateConstructorUsedError;
+  $DyResourceStructureFailureCopyWith<DyResourceStructureFailure>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DyStructureFailureCopyWith<$Res> {
-  factory $DyStructureFailureCopyWith(DyResourceStructureFailure value,
+abstract class $DyResourceStructureFailureCopyWith<$Res> {
+  factory $DyResourceStructureFailureCopyWith(DyResourceStructureFailure value,
           $Res Function(DyResourceStructureFailure) then) =
-      _$DyStructureFailureCopyWithImpl<$Res, DyResourceStructureFailure>;
+      _$DyResourceStructureFailureCopyWithImpl<$Res,
+          DyResourceStructureFailure>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class _$DyStructureFailureCopyWithImpl<$Res,
+class _$DyResourceStructureFailureCopyWithImpl<$Res,
         $Val extends DyResourceStructureFailure>
-    implements $DyStructureFailureCopyWith<$Res> {
-  _$DyStructureFailureCopyWithImpl(this._value, this._then);
+    implements $DyResourceStructureFailureCopyWith<$Res> {
+  _$DyResourceStructureFailureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,7 +120,7 @@ class _$DyStructureFailureCopyWithImpl<$Res,
 
 /// @nodoc
 abstract class _$$UnauthorizedImplCopyWith<$Res>
-    implements $DyStructureFailureCopyWith<$Res> {
+    implements $DyResourceStructureFailureCopyWith<$Res> {
   factory _$$UnauthorizedImplCopyWith(
           _$UnauthorizedImpl value, $Res Function(_$UnauthorizedImpl) then) =
       __$$UnauthorizedImplCopyWithImpl<$Res>;
@@ -130,14 +131,14 @@ abstract class _$$UnauthorizedImplCopyWith<$Res>
 
 /// @nodoc
 class __$$UnauthorizedImplCopyWithImpl<$Res>
-    extends _$DyStructureFailureCopyWithImpl<$Res, _$UnauthorizedImpl>
+    extends _$DyResourceStructureFailureCopyWithImpl<$Res, _$UnauthorizedImpl>
     implements _$$UnauthorizedImplCopyWith<$Res> {
   __$$UnauthorizedImplCopyWithImpl(
       _$UnauthorizedImpl _value, $Res Function(_$UnauthorizedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -162,7 +163,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
 
   @override
   String toString() {
-    return 'DyStructureFailure.unauthorized(message: $message)';
+    return 'DyResourceStructureFailure.unauthorized(message: $message)';
   }
 
   @override
@@ -176,8 +177,8 @@ class _$UnauthorizedImpl implements _Unauthorized {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -271,8 +272,8 @@ abstract class _Unauthorized implements DyResourceStructureFailure {
   @override
   String get message;
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UnauthorizedImplCopyWith<_$UnauthorizedImpl> get copyWith =>
@@ -281,7 +282,7 @@ abstract class _Unauthorized implements DyResourceStructureFailure {
 
 /// @nodoc
 abstract class _$$InternalServerImplCopyWith<$Res>
-    implements $DyStructureFailureCopyWith<$Res> {
+    implements $DyResourceStructureFailureCopyWith<$Res> {
   factory _$$InternalServerImplCopyWith(_$InternalServerImpl value,
           $Res Function(_$InternalServerImpl) then) =
       __$$InternalServerImplCopyWithImpl<$Res>;
@@ -292,14 +293,14 @@ abstract class _$$InternalServerImplCopyWith<$Res>
 
 /// @nodoc
 class __$$InternalServerImplCopyWithImpl<$Res>
-    extends _$DyStructureFailureCopyWithImpl<$Res, _$InternalServerImpl>
+    extends _$DyResourceStructureFailureCopyWithImpl<$Res, _$InternalServerImpl>
     implements _$$InternalServerImplCopyWith<$Res> {
   __$$InternalServerImplCopyWithImpl(
       _$InternalServerImpl _value, $Res Function(_$InternalServerImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -324,7 +325,7 @@ class _$InternalServerImpl implements _InternalServer {
 
   @override
   String toString() {
-    return 'DyStructureFailure.internalServer(message: $message)';
+    return 'DyResourceStructureFailure.internalServer(message: $message)';
   }
 
   @override
@@ -338,8 +339,8 @@ class _$InternalServerImpl implements _InternalServer {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -435,8 +436,8 @@ abstract class _InternalServer implements DyResourceStructureFailure {
   @override
   String get message;
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InternalServerImplCopyWith<_$InternalServerImpl> get copyWith =>
@@ -445,7 +446,7 @@ abstract class _InternalServer implements DyResourceStructureFailure {
 
 /// @nodoc
 abstract class _$$UndefinedImplCopyWith<$Res>
-    implements $DyStructureFailureCopyWith<$Res> {
+    implements $DyResourceStructureFailureCopyWith<$Res> {
   factory _$$UndefinedImplCopyWith(
           _$UndefinedImpl value, $Res Function(_$UndefinedImpl) then) =
       __$$UndefinedImplCopyWithImpl<$Res>;
@@ -456,14 +457,14 @@ abstract class _$$UndefinedImplCopyWith<$Res>
 
 /// @nodoc
 class __$$UndefinedImplCopyWithImpl<$Res>
-    extends _$DyStructureFailureCopyWithImpl<$Res, _$UndefinedImpl>
+    extends _$DyResourceStructureFailureCopyWithImpl<$Res, _$UndefinedImpl>
     implements _$$UndefinedImplCopyWith<$Res> {
   __$$UndefinedImplCopyWithImpl(
       _$UndefinedImpl _value, $Res Function(_$UndefinedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -488,7 +489,7 @@ class _$UndefinedImpl implements _Undefined {
 
   @override
   String toString() {
-    return 'DyStructureFailure.undefined(message: $message)';
+    return 'DyResourceStructureFailure.undefined(message: $message)';
   }
 
   @override
@@ -502,8 +503,8 @@ class _$UndefinedImpl implements _Undefined {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -597,8 +598,8 @@ abstract class _Undefined implements DyResourceStructureFailure {
   @override
   String get message;
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UndefinedImplCopyWith<_$UndefinedImpl> get copyWith =>
@@ -607,7 +608,7 @@ abstract class _Undefined implements DyResourceStructureFailure {
 
 /// @nodoc
 abstract class _$$NotFoundImplCopyWith<$Res>
-    implements $DyStructureFailureCopyWith<$Res> {
+    implements $DyResourceStructureFailureCopyWith<$Res> {
   factory _$$NotFoundImplCopyWith(
           _$NotFoundImpl value, $Res Function(_$NotFoundImpl) then) =
       __$$NotFoundImplCopyWithImpl<$Res>;
@@ -618,14 +619,14 @@ abstract class _$$NotFoundImplCopyWith<$Res>
 
 /// @nodoc
 class __$$NotFoundImplCopyWithImpl<$Res>
-    extends _$DyStructureFailureCopyWithImpl<$Res, _$NotFoundImpl>
+    extends _$DyResourceStructureFailureCopyWithImpl<$Res, _$NotFoundImpl>
     implements _$$NotFoundImplCopyWith<$Res> {
   __$$NotFoundImplCopyWithImpl(
       _$NotFoundImpl _value, $Res Function(_$NotFoundImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -650,7 +651,7 @@ class _$NotFoundImpl implements _NotFound {
 
   @override
   String toString() {
-    return 'DyStructureFailure.notFound(message: $message)';
+    return 'DyResourceStructureFailure.notFound(message: $message)';
   }
 
   @override
@@ -664,8 +665,8 @@ class _$NotFoundImpl implements _NotFound {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -759,8 +760,8 @@ abstract class _NotFound implements DyResourceStructureFailure {
   @override
   String get message;
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NotFoundImplCopyWith<_$NotFoundImpl> get copyWith =>
@@ -769,7 +770,7 @@ abstract class _NotFound implements DyResourceStructureFailure {
 
 /// @nodoc
 abstract class _$$BadRequestImplCopyWith<$Res>
-    implements $DyStructureFailureCopyWith<$Res> {
+    implements $DyResourceStructureFailureCopyWith<$Res> {
   factory _$$BadRequestImplCopyWith(
           _$BadRequestImpl value, $Res Function(_$BadRequestImpl) then) =
       __$$BadRequestImplCopyWithImpl<$Res>;
@@ -780,14 +781,14 @@ abstract class _$$BadRequestImplCopyWith<$Res>
 
 /// @nodoc
 class __$$BadRequestImplCopyWithImpl<$Res>
-    extends _$DyStructureFailureCopyWithImpl<$Res, _$BadRequestImpl>
+    extends _$DyResourceStructureFailureCopyWithImpl<$Res, _$BadRequestImpl>
     implements _$$BadRequestImplCopyWith<$Res> {
   __$$BadRequestImplCopyWithImpl(
       _$BadRequestImpl _value, $Res Function(_$BadRequestImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -812,7 +813,7 @@ class _$BadRequestImpl implements _BadRequest {
 
   @override
   String toString() {
-    return 'DyStructureFailure.badRequest(message: $message)';
+    return 'DyResourceStructureFailure.badRequest(message: $message)';
   }
 
   @override
@@ -826,8 +827,8 @@ class _$BadRequestImpl implements _BadRequest {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
@@ -921,8 +922,8 @@ abstract class _BadRequest implements DyResourceStructureFailure {
   @override
   String get message;
 
-  /// Create a copy of DyStructureFailure
-  /// with the given fields replaced by the non-null parameter values.
+  /// Create a copy of DyResourceStructureFailure
+  /// with the given dyFields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BadRequestImplCopyWith<_$BadRequestImpl> get copyWith =>

@@ -10,25 +10,24 @@ class DyResourceResponse {
   ) {
     return DyResourceResponse(
       id: entity.id,
-      structureCode: entity.structureCode,
-      fields: entity.fields,
+      dyFields: entity.dyFields,
       createdAt: entity.createdAt,
       updatedAt: entity.updatedAt,
     );
   }
 
   final String id;
-  final String? structureCode;
-  final Map<String, dynamic>? fields;
+  final Map<String, dynamic>? dyFields;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final String? creatorId;
 
   const DyResourceResponse({
     required this.id,
-    this.structureCode,
-    this.fields,
+    this.dyFields,
     this.createdAt,
     this.updatedAt,
+    this.creatorId,
   });
 
   factory DyResourceResponse.fromJson(Map<String, dynamic> json) =>

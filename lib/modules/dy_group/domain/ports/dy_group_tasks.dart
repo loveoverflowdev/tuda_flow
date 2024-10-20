@@ -17,13 +17,13 @@ ReaderTaskEither<DyGroupRepository, DyGroupFailure, DyGroup> getGroupByIdTask(
 
 ReaderTaskEither<DyGroupRepository, DyGroupFailure, void> createGroupTask({
   required String structureCode,
-  required Map<String, dynamic> fields,
+  required Map<String, dynamic> dyFields,
 }) {
   return ReaderTaskEither(
     (repo) => repo
         .createGroup(
           structureCode: structureCode,
-          fields: fields,
+          dyFields: dyFields,
         )
         .run(),
   );
@@ -32,14 +32,14 @@ ReaderTaskEither<DyGroupRepository, DyGroupFailure, void> createGroupTask({
 ReaderTaskEither<DyGroupRepository, DyGroupFailure, void> updateGroupTask({
   required String id,
   required String structureCode,
-  required Map<String, dynamic> fields,
+  required Map<String, dynamic> dyFields,
 }) {
   return ReaderTaskEither(
     (repo) => repo
         .updateGroup(
           structureCode: structureCode,
           id: id,
-          fields: fields,
+          dyFields: dyFields,
         )
         .run(),
   );

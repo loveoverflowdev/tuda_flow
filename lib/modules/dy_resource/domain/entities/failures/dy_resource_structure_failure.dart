@@ -5,7 +5,7 @@ part 'dy_resource_structure_failure.freezed.dart';
 
 @freezed
 class DyResourceStructureFailure
-    with _$DyStructureFailure
+    with _$DyResourceStructureFailure
     implements BaseFailure {
   factory DyResourceStructureFailure.unauthorized({
     required String message,

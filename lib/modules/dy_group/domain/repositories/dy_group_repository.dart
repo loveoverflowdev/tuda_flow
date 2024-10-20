@@ -6,12 +6,12 @@ abstract interface class DyGroupRepository {
   TaskEither<DyGroupFailure, Iterable<DyGroup>> getGroups();
   TaskEither<DyGroupFailure, void> createGroup({
     required String structureCode,
-    Map<String, dynamic>? fields,
+    Map<String, dynamic>? dyFields,
   });
   TaskEither<DyGroupFailure, void> updateGroup({
     required String id,
     required String structureCode,
-    Map<String, dynamic>? fields,
+    Map<String, dynamic>? dyFields,
   });
   TaskEither<DyGroupFailure, void> deleteGroupById(String id);
 }

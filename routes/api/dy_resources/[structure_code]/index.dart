@@ -12,7 +12,9 @@ Future<Response> onRequest(RequestContext context, String structureCode) {
 }
 
 Future<Response> _get(RequestContext context, String structureCode) {
-  return getResourcesTask().match(
+  return getResourcesTask(
+    structureCode: structureCode,
+  ).match(
     _failureToResponse,
     (dyResources) {
       return responseData(
@@ -23,8 +25,8 @@ Future<Response> _get(RequestContext context, String structureCode) {
 }
 
 Future<Response> _post(RequestContext context, String structureCode) async {
-  final fields = await context.request.json();
-  if (fields is! Map<String, dynamic>) {
+  final dyFields = await context.request.json();
+  if (dyFields is! Map<String, dynamic>) {
     return responseFailure(
       statusCode: HttpStatus.badRequest,
       message: 'Body must be provided as JSON',
@@ -32,11 +34,19 @@ Future<Response> _post(RequestContext context, String structureCode) async {
   }
   return createResourceTask(
     structureCode: structureCode,
-    fields: fields,
+    dyFields: dyFields,
   ).match(
     _failureToResponse,
-    (String id) {
-      return responseData(DyResourceResponse(id: id));
+    (resource) {
+      return responseData(
+        DyResourceResponse(
+          id: resource.id,
+          dyFields: resource.dyFields,
+          createdAt: resource.createdAt,
+          updatedAt: resource.updatedAt,
+          creatorId: resource.creatorId,
+        ),
+      );
     },
   ).run(context.read<DyResourceRepository>());
 }
@@ -61,6 +71,10 @@ Response _failureToResponse(DyResourceFailure failure) {
     ),
     badRequest: (message) => responseFailure(
       statusCode: HttpStatus.badRequest,
+      message: message,
+    ),
+    structureNotFound: (message) => responseFailure(
+      statusCode: HttpStatus.notFound,
       message: message,
     ),
   );

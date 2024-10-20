@@ -9,22 +9,40 @@ final class DyResourceRepositoryImpl implements DyResourceRepository {
   }) : _dbClient = dbClient;
 
   @override
-  TaskEither<DyResourceFailure, String> createResource({
+  TaskEither<DyResourceFailure, DyResource> createResource({
     required String structureCode,
-    required Map<String, dynamic> fields,
+    required Map<String, dynamic> dyFields,
   }) {
-    // TODO: implement createResource
-    throw UnimplementedError();
+    return DyResourceDbQuery.createResource(
+      _dbClient,
+      structureCode: structureCode,
+      creatorId: null,
+      dyFields: dyFields,
+    ).mapLeft(_mapQueryFailure);
   }
 
   @override
-  TaskEither<DyResourceFailure, String> deleteResourceById(String id) {
-    // TODO: implement deleteResourceById
-    throw UnimplementedError();
+  TaskEither<DyResourceFailure, DyResource> deleteResourceById(
+    String id, {
+    required String structureCode,
+  }) {
+    return getResourceById(
+      id,
+      structureCode: structureCode,
+    ).chainFirst(
+      (resource) => DyResourceDbQuery.deleteResourceById(
+        _dbClient,
+        id,
+        structureCode: structureCode,
+      ).mapLeft(_mapQueryFailure),
+    );
   }
 
   @override
-  TaskEither<DyResourceFailure, DyResource> getResourceById(String id) {
+  TaskEither<DyResourceFailure, DyResource> getResourceById(
+    String id, {
+    required String structureCode,
+  }) {
     // TODO: implement updateResource
     throw UnimplementedError();
     // return DyResourceDbQuery.selectResourceById(_dbClient, id)
@@ -35,25 +53,22 @@ final class DyResourceRepositoryImpl implements DyResourceRepository {
   }
 
   @override
-  TaskEither<DyResourceFailure, Iterable<DyResource>> getResources() {
-    // TODO: implement updateResource
-    throw UnimplementedError();
-    // return DyResourceDbQuery.selectResources(_dbClient)
-    //     .map(
-    //       (results) => results.map(
-    //         (result) => result.toEntity(),
-    //       ),
-    //     )
-    //     .mapLeft(_mapQueryFailure);
+  TaskEither<DyResourceFailure, Iterable<DyResource>> getResources({
+    required String structureCode,
+  }) {
+    return DyResourceDbQuery.selectResources(
+      _dbClient,
+      structureCode: structureCode,
+    ).mapLeft(_mapQueryFailure);
   }
 
   @override
-  TaskEither<DyResourceFailure, String> updateResource({
-    required String id,
+  TaskEither<DyResourceFailure, DyResource> updateResourceById(
+    String id, {
     required String structureCode,
-    required Map<String, dynamic> fields,
+    required Map<String, dynamic> dyFields,
   }) {
-    // TODO: implement updateResource
+    // TODO: implement updateResourceById
     throw UnimplementedError();
   }
 
@@ -68,5 +83,9 @@ final class DyResourceRepositoryImpl implements DyResourceRepository {
         DyResourceFailureType.sqlExecutionError => DyResourceFailure.badRequest(
             message: 'Sql Execution payload',
           ),
+        DyResourceFailureType.resourceStructureNotFound =>
+          DyResourceFailure.structureNotFound(
+            message: 'active resource structure not found',
+          )
       };
 }

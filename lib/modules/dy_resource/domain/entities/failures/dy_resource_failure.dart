@@ -21,6 +21,10 @@ class DyResourceFailure with _$DyResourceFailure implements BaseFailure {
     required String message,
   }) = _NotFound;
 
+  factory DyResourceFailure.structureNotFound({
+    required String message,
+  }) = _StructureNotFound;
+
   factory DyResourceFailure.badRequest({
     required String message,
   }) = _BadRequest;

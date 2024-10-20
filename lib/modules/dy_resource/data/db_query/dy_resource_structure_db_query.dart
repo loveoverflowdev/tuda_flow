@@ -88,7 +88,7 @@ SELECT * FROM select_all_dy_resource_structure();
             },
           );
 
-          for (final field in structure.fields) {
+          for (final field in structure.dyFields) {
             await s.execute(
               Sql.named(
                 '''
@@ -105,24 +105,6 @@ SELECT * FROM select_all_dy_resource_structure();
               },
             );
           }
-
-          // for (final field in structure.methods ?? <DyResourceMethod>[]) {
-          //   await s.execute(
-          //     Sql.named(
-          //       '''
-          //       INSERT INTO dy_resource_field (code, type, resource_structure_code, resource_ref_table)
-          //       VALUES
-          //       (@code, @type, @resource_structure_code, @resource_ref_table);
-          //       ''',
-          //     ),
-          //     parameters: {
-          //       'code': field.code,
-          //       'type': field.type.raw,
-          //       'resource_structure_code': structure.code,
-          //       'resource_ref_table': null,
-          //     },
-          //   );
-          // }
 
           await s.execute(
             Sql.named('CALL create_dy_resource_table(@code);'),
